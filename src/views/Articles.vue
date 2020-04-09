@@ -1,30 +1,19 @@
 <template>
-  <section>
-      <heading-content section="Artigos"></heading-content>
-      <div class="container">
-        <nav class="nav nav-tabs nav-stacked article-tab">
-            <a class="nav-link active" data-toggle="tab" href="#articleInternet">Artigos da Internet</a>
-            <a class="nav-link" data-toggle="tab" href="#articleSite">Artigos do site</a>          
-        </nav>
-        <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="articleInternet" role="tabpanel" aria-labelledby="internet-tab">
-                Mundo
-            </div>
-            <div class="tab-pane fade" id="articleSite" role="tabpanel" aria-labelledby="site-tab">
-                Net
-            </div>            
-        </div>
-      </div>
+  <section>      
+    <heading-content></heading-content>
+    <Article></Article> 
   </section>
 </template>
 
 <script>
+import Article from '../components/articles/Article.vue';
 import HeadingContent from '../components/HeadingContent.vue';
 
 export default {
     components: {
-        HeadingContent
-    }
+        HeadingContent,
+        Article    
+    }   
 }
 </script>
 
