@@ -1,0 +1,17 @@
+// colors
+$theme-default: #7DD196;
+$theme-secondary: #ec9f13;
+
+// sidebar themes
+$sidebar-theme: var(--sidebar-background, $theme-default);
+$sidebar-text: var(--sidebar-text, gray);
+$sidebar-hover: var(--sidebar-menu-link-background-hover, gray);
+
+// navbar themes
+$navbar-gradient: var(--navbar-theme, linear-gradient(90deg, rgba(125,209,150,1) 0%, rgba(199,226,199,1) 35%, rgba(231,245,235,1) 100%));
+
+// buttons and spans
+$item-active: var(--item-active, $theme-default);
+
+// details
+$border-radius-dashboard: 15px;
