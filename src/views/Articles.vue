@@ -25,8 +25,7 @@ export default {
     background-color: transparent;    
     border-bottom: 3px solid !important;
     font-size: 16px;
-    font-weight: bold;
-    
+    font-weight: bold;    
 }
 
 .nav-tabs {
