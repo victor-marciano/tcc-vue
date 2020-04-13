@@ -13,16 +13,15 @@
           </div>
           <div class="card-body">
             <div class="tab-content">
-              <!-- <div class="tab-pane fade show active" id="nav-imc" role="tabpanel" aria-labelledby="nav-home-tab">
-                <calc></calc>
+              <div class="tab-pane show active" id="nav-imc" role="tabpanel" aria-labelledby="nav-home-tab">
+                <calc type="Imc"></calc>
               </div>
-              <div class="tab-pane fade show" id="nav-calorias" role="tabpanel" aria-labelledby="nav-home-tab">
-                <calc></calc>
+              <div class="tab-pane show" id="nav-calorias" role="tabpanel" aria-labelledby="nav-home-tab">
+                <calc type="Weight"></calc>
               </div>
-              <div class="tab-pane fade show" id="nav-peso" role="tabpanel" aria-labelledby="nav-home-tab">
-                <calc></calc>
-              </div>               -->
-              <calc v-bind:types="types"></calc>
+              <div class="tab-pane show" id="nav-peso" role="tabpanel" aria-labelledby="nav-home-tab">
+                <calc type="Kcal"></calc>
+              </div>             
             </div>
           </div>
         </div>
@@ -40,47 +39,6 @@ export default {
   components: {
     Heading,
     Calc
-  },
-
-  data() {
-    return {
-      types: [
-        {
-          id: 'nav-imc',
-          title: 'O que é IMC?',
-          subtitle: 'Uma das maneiras de saber se o seu peso está adequado à sua altura é calculando o Índice de Massa Corporal (IMC).',
-          about: `O resultado dessa fórmula matemática poderá indicar, por exemplo, se você está com peso adequado, se apresenta magreza, sobrepeso ou obesidade. Considere apenas como um ponto de partida, pois o IMC não avalia o seu estado nutricional como todo e precisa ser interpretado por um profissional de saúde, que analisará uma série de outras medidas e características suas, como idade, sexo, percentual de gordura, entre outros aspectos, antes de um diagnóstico.
-            A fórmula do IMC é a mesma para todas as pessoas. O que muda são os pontos de corte, ou seja, os valores considerados como referências para a classificação do seu peso. Essas referências são específicas para crianças, adolescentes, adultos, idosos e gestantes.
-            Para calcular do IMC, divida o seu peso (em quilos) pela sua altura (em metros) elevada ao quadrado, ou seja, altura x altura. Veja a fórmula:
-            IMC = P(peso em quilos)/A² (altura x altura, em metros)`,
-          fonte: `https://www.saude.gov.br/artigos/781-atividades-fisicas/40389-o-que-e-imc`
-        },
-        {
-          id: 'nav-calorias',
-          title: 'O quanto eu devo comer ?',
-          subtitle: 'Todo mundo se preocupa com o próprio peso, mas será que sabem realmente o quanto deveriam de fato estar pesando? confira aqui!',
-          about: `O resultado dessa fórmula matemática poderá indicar, por exemplo, se você está com peso adequado, se apresenta magreza, sobrepeso ou obesidade. Considere apenas como um ponto de partida, pois o IMC não avalia o seu estado nutricional como todo e precisa ser interpretado por um profissional de saúde, que analisará uma série de outras medidas e características suas, como idade, sexo, percentual de gordura, entre outros aspectos, antes de um diagnóstico.
-            A fórmula do IMC é a mesma para todas as pessoas. O que muda são os pontos de corte, ou seja, os valores considerados como referências para a classificação do seu peso. Essas referências são específicas para crianças, adolescentes, adultos, idosos e gestantes.
-            Para calcular do IMC, divida o seu peso (em quilos) pela sua altura (em metros) elevada ao quadrado, ou seja, altura x altura. Veja a fórmula:
-            IMC = P(peso em quilos)/A² (altura x altura, em metros)`
-        },
-        {
-          id: 'nav-peso',
-          title: 'Mas afinal, qual é seu peso ideal?',
-          subtitle: 'Todo mundo se preocupa com o próprio peso, mas será que sabem realmente o quanto deveriam de fato estar pesando? confira aqui!',
-          about: `O resultado dessa fórmula matemática poderá indicar, por exemplo, se você está com peso adequado, se apresenta magreza, sobrepeso ou obesidade. Considere apenas como um ponto de partida, pois o IMC não avalia o seu estado nutricional como todo e precisa ser interpretado por um profissional de saúde, que analisará uma série de outras medidas e características suas, como idade, sexo, percentual de gordura, entre outros aspectos, antes de um diagnóstico.
-            A fórmula do IMC é a mesma para todas as pessoas. O que muda são os pontos de corte, ou seja, os valores considerados como referências para a classificação do seu peso. Essas referências são específicas para crianças, adolescentes, adultos, idosos e gestantes.
-            Para calcular do IMC, divida o seu peso (em quilos) pela sua altura (em metros) elevada ao quadrado, ou seja, altura x altura. Veja a fórmula:
-            IMC = P(peso em quilos)/A² (altura x altura, em metros)`
-        }
-      ]   
-    }
-  },
-
-  computed: {
-    getCalcs: () => {  
-      return this.types;
-    } 
   }
 }
 </script>

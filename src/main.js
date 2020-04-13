@@ -17,7 +17,7 @@ library.add(faFacebook);
 library.add(faGooglePlus);
 library.add(faTwitterSquare);
 
-Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 Vue.config.productionTip = false
 
