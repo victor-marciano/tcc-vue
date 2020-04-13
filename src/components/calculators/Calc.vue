@@ -28,9 +28,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .title {
-        
-    }
+    @import "../../assets/scss/_variables.scss";
 
     ::v-deep .subtitle {
         position: relative;
@@ -41,7 +39,12 @@ export default {
         font-size: 12px;  
     }
 
-    .card {
-
+    ::v-deep .form-control {
+        border: none;
+        border-bottom: 1px solid silver;        
+        box-shadow: inset 0 -1px 0 #ddd;  
+        &:focus {
+            border-bottom: 2px solid $theme-default;    
+        }  
     }
 </style>
