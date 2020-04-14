@@ -1,46 +1,82 @@
 <template>
-    <div class="sidebar" data-theme="light">    
-        <div class="logo-area m-3">
+    <div class="sidebar" data-theme="dark">    
+        <div class="logo-area p-5">
             <div class="logo">
-                <img src="../assets/img/nutrimars13.png" alt="Logo">
+                <img src="../assets/img/nutrimars14.png" alt="Logo">
             </div>
         </div>         
         <div class="menu" data-theme="default">            
-            <ul class="m-4">
+            <ul class="m-2">
                 <li class="menu-item mb-3">
                     <router-link class="nav-link" to="/home" exact-active-class="active">
-                        <font-awesome-icon icon="home" class="mr-2"></font-awesome-icon> 
-                        Inicio
+                        <div class="sidebar-icon-area">
+                            <span class="sidebar-icon">
+                                <font-awesome-icon icon="home"></font-awesome-icon> 
+                            </span>
+                        </div>
+                        <div class="sidebar-icon-text">
+                            Inicio
+                        </div>
                     </router-link>                   
                 </li>
                 <li class="menu-item mb-3">  
                     <router-link class="nav-link" to="/dieta" exact-active-class="active">
-                        <font-awesome-icon icon="utensils" class="mr-2"></font-awesome-icon>                  
-                        Dieta
+                        <div class="sidebar-icon-area">
+                            <span class="sidebar-icon">
+                                <font-awesome-icon icon="utensils"></font-awesome-icon>                  
+                            </span>
+                        </div>
+                        <div class="sidebar-icon-text">
+                            Dieta
+                        </div>
                     </router-link>
                 </li>
                 <li class="menu-item mb-3">  
                     <router-link class="nav-link" to="/treino" exact-active-class="active">
-                        <font-awesome-icon icon="dumbbell" class="mr-2"></font-awesome-icon> 
-                        Treinos
+                        <div class="sidebar-icon-area">
+                            <span class="sidebar-icon">
+                                <font-awesome-icon icon="dumbbell"></font-awesome-icon> 
+                            </span>
+                        </div>
+                        <div class="sidebar-icon-text">
+                            Treinos
+                        </div>
                     </router-link>                  
                 </li>
                 <li class="menu-item mb-3">  
                     <router-link class="nav-link" to="/nutri" exact-active-class="active">
-                        <font-awesome-icon icon="user-md" class="mr-2"></font-awesome-icon>
-                        Área do Nutricionista
+                        <div class="sidebar-icon-area">
+                            <span class="sidebar-icon">
+                                <font-awesome-icon icon="user-md"></font-awesome-icon>
+                            </span>
+                        </div>
+                        <div class="sidebar-icon-text">
+                            Área do Nutricionista
+                        </div>
                     </router-link>                  
                 </li>                
                 <li class="menu-item mb-3">                    
                     <router-link class="nav-link" to="/calculadoras" exact-active-class="active">
-                        <font-awesome-icon icon="weight" class="mr-2"></font-awesome-icon>
-                        Calculadoras
+                        <div class="sidebar-icon-area">
+                            <span class="sidebar-icon">
+                                <font-awesome-icon icon="weight"></font-awesome-icon>
+                            </span>                            
+                        </div>
+                        <div class="sidebar-icon-text">
+                            Calculadoras
+                        </div>
                     </router-link>                    
                 </li>
                 <li class="menu-item mb-3">                    
                     <router-link class="nav-link" to="/articles" exact-active-class="active">
-                        <font-awesome-icon icon="weight" class="mr-2"></font-awesome-icon>
-                        Artigos
+                        <div class="sidebar-icon-area">
+                            <span class="sidebar-icon">
+                                <font-awesome-icon icon="weight"></font-awesome-icon>                            
+                            </span>
+                        </div>
+                        <div class="sidebar-icon-text">
+                            Artigos
+                        </div>                            
                     </router-link>                    
                 </li>
             </ul>    
@@ -52,7 +88,7 @@
     @import "../assets/scss/_variables.scss";
     
     .sidebar[data-theme='dark']{
-        --sidebar-background: black;
+        --sidebar-background: #1C1C1C;
         --sidebar-text: white;
         --sidebar-menu-link-background-hover: #EAECEE;
     }
@@ -70,8 +106,7 @@
     }
 
     .sidebar {        
-        background-color: $sidebar-theme; 
-        color: $sidebar-text;
+        background-color: $sidebar-theme;    
         float: left; 
         width: 20%;
         height: 100vh;  
@@ -91,29 +126,65 @@
                 max-width: 100%;
                 max-height: 100%;                
             }
-        }        
-
-        .menu {
-            border-top: 1px solid silver;    
-        }      
+        }
 
         .menu ul{                              
             -webkit-padding-start: 0;
-            list-style-type: none;
-            font-size: 14px;
+            list-style-type: none;    
+            color: gray;    
             
             .menu-item {
-                border-radius: $border-radius-dashboard;    
+                border-radius: $border-radius-dashboard;
                 
-                .active {
-                    background-color: $item-active;
-                    border-radius: inherit;
+                .active {    
+                     .sidebar-icon {
+                         color: $theme-default;   
+                     }    
+                     .sidebar-icon-text {
+                         color: $theme-default;
+                     }                                     
+                }
+
+                 &:hover {
+                    .sidebar-icon-area {
+                        -webkit-box-shadow: 0px 0px 5px 0px $theme-default;
+                        -moz-box-shadow: 0px 0px 5px 0px $theme-default;
+                        box-shadow: 0px 0px 5px 0px $theme-default;  
+                    }
+                    .sidebar-icon {
+                        color: $theme-default;   
+                    }    
+                    .sidebar-icon-text {
+                        color: $theme-default;
+                    }                                     
                 }
             }
 
-            .menu-item:hover {                
-                background-color: $sidebar-hover;
-            }    
+            .sidebar-icon-area {
+                float: left;
+                background-color: lighten(#1C1C1C, 5%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 35px;
+                height: 35px;
+                -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+                -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+                box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);   
+            }
+
+            .sidebar-icon {
+                font-size: 20px;
+                border-radius: 50%;
+            } 
+            
+            .sidebar-icon-text {
+                font-size: 16px;
+                font-weight: 400;
+                position: relative;
+                left: 15px;
+                top: 5px;
+            }
         }
 
         a {
