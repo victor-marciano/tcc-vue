@@ -167,8 +167,4 @@ export default {
         font-size: 12px;
         font-weight: bold;
     }
-
-    .fade-active {
-        transition-delay: 2s;
-    }
 </style>
