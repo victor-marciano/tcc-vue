@@ -1,14 +1,20 @@
 <template>
-    <div class="sidebar" data-theme="dark">    
-        <div class="logo-area p-5">
+    <!-- <div :class="['sidebar', mini ? 'sidebar-mini' : '']" data-theme="dark"> -->
+    <div :class="['sidebar', mini ? 'sidebar-mini' : '']" data-theme="dark">
+        <div class="sidebar-toggler p-3 mt-1">
+            <span class="toggle-link" style="font-size: 1.7em;" v-on:click="mini = !mini">
+                <font-awesome-icon icon="bars"></font-awesome-icon>
+            </span>
+        </div>    
+        <div class="logo-area">
             <div class="logo">
-                <img src="../assets/img/nutrimars14.png" alt="Logo">
+                <img :src="getLogo" alt="Logo">
             </div>
         </div>         
         <div class="menu" data-theme="default">            
-            <ul class="m-2">
+            <ul>
                 <li class="menu-item mb-3">
-                    <router-link class="nav-link" to="/home" exact-active-class="active">
+                    <router-link class="nav-link" to="/home" exact-active-class="active" data-toggle="tooltip" data-placement="top" title="Inicio">
                         <div class="sidebar-icon-area">
                             <span class="sidebar-icon">
                                 <font-awesome-icon icon="home"></font-awesome-icon> 
@@ -20,7 +26,7 @@
                     </router-link>                   
                 </li>
                 <li class="menu-item mb-3">  
-                    <router-link class="nav-link" to="/dieta" exact-active-class="active">
+                    <router-link class="nav-link" to="/dieta" exact-active-class="active" :title="[mini ? 'Dietas' : '']">
                         <div class="sidebar-icon-area">
                             <span class="sidebar-icon">
                                 <font-awesome-icon icon="utensils"></font-awesome-icon>                  
@@ -32,7 +38,7 @@
                     </router-link>
                 </li>
                 <li class="menu-item mb-3">  
-                    <router-link class="nav-link" to="/treino" exact-active-class="active">
+                    <router-link class="nav-link" to="/treino" exact-active-class="active" :title="[mini ? 'Treinos' : '']">
                         <div class="sidebar-icon-area">
                             <span class="sidebar-icon">
                                 <font-awesome-icon icon="dumbbell"></font-awesome-icon> 
@@ -44,7 +50,7 @@
                     </router-link>                  
                 </li>
                 <li class="menu-item mb-3">  
-                    <router-link class="nav-link" to="/nutri" exact-active-class="active">
+                    <router-link class="nav-link" to="/nutri" exact-active-class="active" :title="[mini ? 'Área do nutricionista' : '']">
                         <div class="sidebar-icon-area">
                             <span class="sidebar-icon">
                                 <font-awesome-icon icon="user-md"></font-awesome-icon>
@@ -56,7 +62,7 @@
                     </router-link>                  
                 </li>                
                 <li class="menu-item mb-3">                    
-                    <router-link class="nav-link" to="/calculadoras" exact-active-class="active">
+                    <router-link class="nav-link" to="/calculadoras" exact-active-class="active" :title="[mini ? 'Calculadoras' : '']">
                         <div class="sidebar-icon-area">
                             <span class="sidebar-icon">
                                 <font-awesome-icon icon="weight"></font-awesome-icon>
@@ -68,7 +74,7 @@
                     </router-link>                    
                 </li>
                 <li class="menu-item mb-3">                    
-                    <router-link class="nav-link" to="/articles" exact-active-class="active">
+                    <router-link class="nav-link" to="/articles" exact-active-class="active" :title="[mini ? 'Artigos' : '']">
                         <div class="sidebar-icon-area">
                             <span class="sidebar-icon">
                                 <font-awesome-icon icon="weight"></font-awesome-icon>                            
@@ -83,6 +89,21 @@
         </div>       
     </div> 
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            mini: false
+        }
+    },
+    computed: {
+        getLogo () {
+            return (this.mini) ? require('../assets/img/nutrimarsIcon.png') : require('../assets/img/nutrimars14.png');
+        }
+    }
+}
+</script>
 
 <style lang="scss" scoped>
     @import "../assets/scss/_variables.scss";
@@ -103,7 +124,7 @@
         --sidebar-background: #ccffe6;
         --sidebar-text: white;
         --sidebar-menu-link-background-hover: #EAECEE;
-    }
+    }    
 
     .sidebar {        
         background-color: $sidebar-theme;    
@@ -118,15 +139,52 @@
         -moz-box-shadow: 2px 0px 11px -1px rgba(0,0,0,0.34);
         box-shadow: 2px 0px 11px -1px rgba(0,0,0,0.34);
         margin-right: 1px;  
-        z-index: 1;     
+        z-index: 1; 
+        transition: 0.5s;                
         
-        .logo-area {  
-            width: 100%;    
-            .logo img{            
-                max-width: 100%;
-                max-height: 100%;                
+        &.sidebar-mini {
+            width: 5%;
+            overflow: hidden;
+            .sidebar-icon-text {    
+                display: none;
+            }   
+            .sidebar-icon-area{
+                margin-bottom: 15px;
             }
+            .sidebar-toggler {
+                justify-content: center;
+            }   
         }
+
+        .logo-area {  
+            display: flex;
+            justify-content: center;
+            align-items: center;        
+            width: 100%;   
+            height: 100px; 
+            .logo {
+                width: 75%;
+                img{            
+                    max-width: 100%;
+                    max-height: 100%;                
+                }
+            } 
+        }
+
+        .sidebar-toggler {
+            height: 50px;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;    
+            .toggle-link {
+                cursor: pointer;
+                color: gray;
+                &:hover {
+                    color: white;
+                }
+            }
+        }    
 
         .menu ul{                              
             -webkit-padding-start: 0;

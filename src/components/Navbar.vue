@@ -7,8 +7,8 @@
                 </span>
             </a>       
             
-            <div class="mobile-logo d-md-none d-sm-block">
-                <img src="../assets/img/nutrimars13.png" alt="">
+            <div class="mobile-logo d-md-none d-sm-block m-2">
+                <img src="../assets/img/nutrimars14.png" alt="Logo">
             </div>
 
             <form class="form-inline" id="form-search">
@@ -179,8 +179,17 @@ export default {
     }
 
     @media (max-width: 900px) {
+        
+        nav[data-theme="secondary"] {        
+            --navbar-theme: black;
+        }
+        
+        nav[data-theme="default"] {        
+            --navbar-theme: whitesmoke;
+        }
+
         .bg-theme {
-           background: whitesmoke;
+            background: whitesmoke;
             color: white;
         }
 
@@ -194,7 +203,7 @@ export default {
 
         .mobile-logo {
             height: 100%;
-            max-width: 275px;
+            max-width: 275px;    
             img {
                 width: 100%;
             }
