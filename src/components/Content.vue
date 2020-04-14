@@ -13,6 +13,6 @@ export default {
 
 <style lang="scss">
     .content {    
-        overflow: auto;    
+        overflow: hidden;    
     }
 </style>
