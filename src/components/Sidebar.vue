@@ -1,5 +1,4 @@
-<template>
-    <!-- <div :class="['sidebar', mini ? 'sidebar-mini' : '']" data-theme="dark"> -->
+<template>    
     <div :class="['sidebar', mini ? 'sidebar-mini' : '']" data-theme="dark">
         <div class="sidebar-toggler p-3 mt-1">
             <span class="toggle-link" style="font-size: 1.7em;" v-on:click="mini = !mini">
@@ -85,6 +84,18 @@
                         </div>                            
                     </router-link>                    
                 </li>
+                <li class="menu-item mb-3">                    
+                    <router-link class="nav-link" to="/accounts" exact-active-class="active" :title="[mini ? 'Usuários cadastrados' : '']">
+                        <div class="sidebar-icon-area">
+                            <span class="sidebar-icon">
+                                <font-awesome-icon icon="users"></font-awesome-icon>                            
+                            </span>
+                        </div>
+                        <div class="sidebar-icon-text">
+                            Contas
+                        </div>                            
+                    </router-link>                    
+                </li>
             </ul>    
         </div>
         <div class="sidebar-need-auth">
@@ -95,14 +106,23 @@
 
 <script>
 export default {
+    props: {
+        active: Boolean
+    },
+
     data() {
         return {
-            mini: false
+            mini: false,
+            active_on_mobile: this.active
         }
     },
+
     computed: {
         getLogo () {
             return (this.mini) ? require('../assets/img/nutrimarsIcon.png') : require('../assets/img/nutrimars14.png');
+        },
+        isActive () {    
+            return this.active_on_mobile;
         }
     }
 }
@@ -289,7 +309,7 @@ export default {
 
     @media (max-width: 900px) {
         .sidebar {
-            display: none;
+            display: none;    
         }
     }
 </style>

@@ -1,6 +1,6 @@
 <template>
-    <section>        
-        <nav class="navbar navbar-expand-sm navbar-light justify-content-between" data-theme="secondary">        
+    <section>
+        <nav class="navbar navbar-expand-sm navbar-light justify-content-between" data-theme="secondary">
             <a v-on:click="showMenu" id="navbarToggler">        
                 <span class="text-muted" style="font-size: 1.7em;">
                     <font-awesome-icon icon="bars"></font-awesome-icon>
@@ -50,9 +50,8 @@
                     </router-link>
                 </div>   
             </div>
-
-            <transition name="show" enter-active-class="slideInDown" leave-active-class="slideOutUp">        
-                <div id="navbarMobile" v-if="navbar_menu_show">
+            <transition name="show" enter-active-class="slideInLeft" leave-active-class="slideOutLeft">        
+                <div class="navbarMobile" id="navbarMobile" v-if="navbar_menu_show">
                     <div class="menu mt-3">
                         <ul class="nav navbar-nav">
                             <li class="menu-item">
@@ -75,19 +74,19 @@
                             </li>
                             <li class="menu-item">  
                                 <router-link class="nav-link" to="/nutri" exact-active-class="active">
-                                    <font-awesome-icon icon="user-md" class="mr-2 ml-2"></font-awesome-icon>
+                                    <font-awesome-icon icon="stethoscope" class="mr-2 ml-2"></font-awesome-icon>
                                     Área do Nutricionista
                                 </router-link>                  
                             </li>                
                             <li class="menu-item">                    
-                                <router-link class="nav-link" to="/imc" exact-active-class="active">
+                                <router-link class="nav-link" to="/calculadoras" exact-active-class="active">
                                     <font-awesome-icon icon="weight" class="mr-2 ml-2"></font-awesome-icon>
                                     Calculadoras
                                 </router-link>                    
                             </li>
                             <li class="menu-item">                    
-                                <router-link class="nav-link" to="/article" exact-active-class="active">
-                                    <font-awesome-icon icon="weight" class="mr-2 ml-2"></font-awesome-icon>
+                                <router-link class="nav-link" to="/articles" exact-active-class="active">
+                                    <font-awesome-icon icon="newspaper" class="mr-2 ml-2"></font-awesome-icon>
                                     Artigos
                                 </router-link>                    
                             </li>
@@ -100,16 +99,17 @@
 </template>
 
 <script>
-export default {
+
+export default {    
     data () {
         return {
-            navbar_menu_show: false
+            navbar_menu_show: false          
         }
     },
 
     methods: {
-        showMenu () { this.navbar_menu_show = !this.navbar_menu_show }
-    }
+        showMenu () { this.navbar_menu_show = !this.navbar_menu_show }             
+    }    
 }
 </script>
 
@@ -205,6 +205,10 @@ export default {
             display: block;
         }
 
+        .navbar-mobile {
+            width: max-content;
+        }
+
         .mobile-logo {
             height: 100%;
             max-width: 275px;    
@@ -214,19 +218,20 @@ export default {
         }        
 
         .menu ul{ 
-            width: 42vh;               
+            width: 51vh;      
+            // max-width: 400px;         
             list-style-type: none;
-            font-size: 14px;
-            color: black;      
-            z-index: 1;    
+            font-size: 16px;
+            color: white;      
+            z-index: 2;    
             
             .menu-item {                                
                 -webkit-box-shadow: 0px 0px 3px -2px rgba(102,99,102,1);
                 -moz-box-shadow: 0px 0px 3px -2px rgba(102,99,102,1);
-                box-shadow: 0px 0px 3px -2px rgba(102,99,102,1);               
+                box-shadow: 0px 0px 3px -2px rgba(102,99,102,1);                 
                 
                 .nav-link {
-                    color: black;
+                    color: white;
                 }
 
                 .active {
@@ -236,8 +241,7 @@ export default {
             }
            
         }
+        
     }
     
 </style>
-
-
