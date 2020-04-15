@@ -44,6 +44,10 @@
                         <font-awesome-icon icon="sign-out-alt" class="mr-2"></font-awesome-icon>
                         Temas
                     </router-link>
+                    <router-link class="dropdown-item" to="/logout">
+                        <font-awesome-icon icon="sign-in-alt" class="mr-2"></font-awesome-icon>
+                        Login/Cadastro
+                    </router-link>
                 </div>   
             </div>
 
