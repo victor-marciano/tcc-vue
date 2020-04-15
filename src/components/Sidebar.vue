@@ -53,7 +53,7 @@
                     <router-link class="nav-link" to="/nutri" exact-active-class="active" :title="[mini ? 'Área do nutricionista' : '']">
                         <div class="sidebar-icon-area">
                             <span class="sidebar-icon">
-                                <font-awesome-icon icon="user-md"></font-awesome-icon>
+                                <font-awesome-icon icon="stethoscope"></font-awesome-icon>
                             </span>
                         </div>
                         <div class="sidebar-icon-text">
@@ -77,7 +77,7 @@
                     <router-link class="nav-link" to="/articles" exact-active-class="active" :title="[mini ? 'Artigos' : '']">
                         <div class="sidebar-icon-area">
                             <span class="sidebar-icon">
-                                <font-awesome-icon icon="weight"></font-awesome-icon>                            
+                                <font-awesome-icon icon="newspaper"></font-awesome-icon>                            
                             </span>
                         </div>
                         <div class="sidebar-icon-text">
@@ -86,6 +86,9 @@
                     </router-link>                    
                 </li>
             </ul>    
+        </div>
+        <div class="sidebar-need-auth">
+            <button class="btn btn-primary">Cadastre-se</button>    
         </div>       
     </div> 
 </template>
@@ -154,6 +157,9 @@ export default {
             .sidebar-toggler {
                 justify-content: center;
             }   
+            .sidebar-need-auth {
+                display: none;
+            }
         }
 
         .logo-area {  
@@ -242,6 +248,28 @@ export default {
                 position: relative;
                 left: 15px;
                 top: 5px;
+            }
+
+        }
+
+        .sidebar-need-auth {
+            display: flex;
+            justify-content: center; 
+            position: relative;
+            top: 110px;
+            button {
+                -webkit-box-shadow: 0px 0px 5px 0px $theme-default;
+                -moz-box-shadow: 0px 0px 5px 0px $theme-default;
+                box-shadow: 0px 0px 5px 0px $theme-default;
+                background-color: $theme-default;
+                color: #454545;
+                border:none; 
+                font-size: 18px;
+                font-weight: bold; 
+                width: 90%;  
+                &:hover{
+                    background-color: darken($theme-default, 15%);
+                }
             }
         }
 

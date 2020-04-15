@@ -56,6 +56,24 @@
                         </div>
                     </div>
                   </transition>                  
+                  <transition name="fade" mode="out-in" appear :duration="1000">
+                    <div class="col-md-4 col-xs-12 mb-4">
+                        <div class="card">                         
+                          <img class="card-img-top" src="../../assets/img/profile2.jpg" alt="">
+                          <div class="card-details">
+                            
+                          </div>
+                          <div class="card-body">
+                            <h6 class="text-muted">Author</h6>
+                            <a href=""><h5 class="card-title">Titulo da noticia</h5></a>
+                            <p class="card-text">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
+                          </div>
+                          <div class="card-footer text-muted">
+                            Publicado em 24/09/2017
+                          </div>
+                        </div>
+                    </div>
+                  </transition>                  
                 </div>
             </div>
         </article>    
