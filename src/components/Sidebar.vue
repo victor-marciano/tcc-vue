@@ -12,8 +12,7 @@
         </div>         
         <div class="menu" data-theme="default">            
             <ul>
-                <li class="menu-item">
-                    <!-- <router-link class="nav-link" to="/home" exact-active-class="active"> -->
+                <li class="menu-item">                    
                     <router-link class="nav-link" to="/home" exact-active-class="active">
                         <div class="sidebar-icon-area">
                             <span class="sidebar-icon">
@@ -179,8 +178,9 @@ export default {
         &.sidebar-mini {
             width: 5%;
             overflow: hidden;
+
             .sidebar-icon-text {    
-                display: none;
+                display: none;    
             }   
             .sidebar-icon-area{
                 margin-bottom: 15px;
@@ -200,7 +200,7 @@ export default {
             width: 100%;   
             height: 100px; 
             .logo {
-                width: 75%;
+                width: 75%;   
                 img{            
                     max-width: 100%;
                     max-height: 100%;                
@@ -293,8 +293,9 @@ export default {
         .sidebar-need-auth {
             display: flex;
             justify-content: center; 
-            position: relative;
-            top: 110px;
+            position: fixed;
+            bottom: 15px;
+            width: inherit;
             button {
                 -webkit-box-shadow: 0px 0px 5px 0px $theme-default;
                 -moz-box-shadow: 0px 0px 5px 0px $theme-default;
