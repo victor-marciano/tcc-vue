@@ -1,5 +1,5 @@
 <template>    
-  <div class="container articles">
+  <div class="container-fluid articles">
     <div class="row">          
       <div class="col-md-4 col-xs-12 mb-4" v-for="article in articles" :key="article.id">
         <transition name="fade" mode="out-in" appear>
@@ -50,7 +50,7 @@ export default {
     height: 360px;
 
     .card-body {  
-      p {
+      p, .card-title {
         width: 100%;
         overflow: hidden;
         text-overflow: ellipsis;

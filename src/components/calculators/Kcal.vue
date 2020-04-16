@@ -1,16 +1,5 @@
-<template>
-    <transition enter-active-class="fadeInUp">    
-        <div>
-            <h5 class="title">O quanto eu devo comer ?</h5>
-            <small class="subtitle text-muted">Todo mundo se preocupa com o próprio peso, mas será que sabem realmente o quanto deveriam de fato estar pesando? confira aqui!</small>
-            <div class="info mt-3">
-                
-            </div>
-            <div class="row">
-                
-            </div>
-        </div>
-    </transition>
+<template>    
+    <div class="yz-widget" data-calculator-type="daily_need" data-language="pt" data-unit-system="metric" data-background-color="#EEEEEE" data-text-color="#212121" data-primary-color="#7DD196" data-alternate-background-color="#FFFFFF" data-alternate-text-color="#FFFFFF" data-secondary-color="#ec9f13"><span class="yz-copyright">Powered by <a href="https://www.yazio.com/pt/calculadora-imc">YAZIO</a></span></div>        
 </template>
 
 <script>
