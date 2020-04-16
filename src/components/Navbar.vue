@@ -1,6 +1,6 @@
 <template>
     <section>
-        <nav class="navbar navbar-expand-sm navbar-light justify-content-between" data-theme="secondary">
+        <nav class="navbar navbar-expand-sm navbar-light justify-content-between" data-theme="default">
             <a v-on:click="showMenu" id="navbarToggler">        
                 <span class="text-muted" style="font-size: 1.7em;">
                     <font-awesome-icon icon="bars"></font-awesome-icon>
@@ -218,8 +218,7 @@ export default {
         }        
 
         .menu ul{ 
-            width: 51vh;      
-            // max-width: 400px;         
+            width: 51vh;             
             list-style-type: none;
             font-size: 16px;
             color: white;      
@@ -238,10 +237,7 @@ export default {
                     background-color: $theme-default;
                     border-radius: inherit;
                 }
-            }
-           
-        }
-        
-    }
-    
+            }           
+        }        
+    }    
 </style>
