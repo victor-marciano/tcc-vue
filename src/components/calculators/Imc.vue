@@ -1,6 +1,6 @@
 <template>
     <transition enter-active-class="fadeInUp">
-        <div class="container">
+        <div class="container-fluid">
             <h4 class="title">O que é IMC?</h4>
             <small class="subtitle text-muted">Uma das maneiras de saber se o seu peso está adequado à sua altura é calculando o Índice de Massa Corporal (IMC).</small>
             <div class="info mt-3">

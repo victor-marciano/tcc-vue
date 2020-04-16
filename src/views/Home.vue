@@ -1,7 +1,7 @@
 <template>  
   <section>
     <Heading section="Introdução"></Heading>
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
         <div class="col-md-4">
           <CardKcal icon="kcal" :qty="3000" :max="3100" unit="kcal"></CardKcal>

@@ -1,7 +1,7 @@
 <template>
   <section>
     <heading></heading>
-    <div class="container">
+    <div class="container-fluid">
       <transition name="show" enter-active-class="fadeInUp" appear>              
         <div class="card">
           <div class="card-header">
