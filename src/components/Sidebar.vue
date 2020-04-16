@@ -12,8 +12,9 @@
         </div>         
         <div class="menu" data-theme="default">            
             <ul>
-                <li class="menu-item mb-3">
-                    <router-link class="nav-link" to="/home" exact-active-class="active" data-toggle="tooltip" data-placement="top" title="Inicio">
+                <li class="menu-item">
+                    <!-- <router-link class="nav-link" to="/home" exact-active-class="active"> -->
+                    <router-link class="nav-link" to="/home" exact-active-class="active">
                         <div class="sidebar-icon-area">
                             <span class="sidebar-icon">
                                 <font-awesome-icon icon="home"></font-awesome-icon> 
@@ -24,7 +25,7 @@
                         </div>
                     </router-link>                   
                 </li>
-                <li class="menu-item mb-3">  
+                <li class="menu-item">  
                     <router-link class="nav-link" to="/dieta" exact-active-class="active" :title="[mini ? 'Dietas' : '']">
                         <div class="sidebar-icon-area">
                             <span class="sidebar-icon">
@@ -36,7 +37,7 @@
                         </div>
                     </router-link>
                 </li>
-                <li class="menu-item mb-3">  
+                <li class="menu-item">  
                     <router-link class="nav-link" to="/treino" exact-active-class="active" :title="[mini ? 'Treinos' : '']">
                         <div class="sidebar-icon-area">
                             <span class="sidebar-icon">
@@ -48,7 +49,7 @@
                         </div>
                     </router-link>                  
                 </li>
-                <li class="menu-item mb-3">  
+                <li class="menu-item">  
                     <router-link class="nav-link" to="/nutri" exact-active-class="active" :title="[mini ? 'Área do nutricionista' : '']">
                         <div class="sidebar-icon-area">
                             <span class="sidebar-icon">
@@ -60,19 +61,29 @@
                         </div>
                     </router-link>                  
                 </li>                
-                <li class="menu-item mb-3">                    
+                <li class="menu-item">                    
                     <router-link class="nav-link" to="/calculadoras" exact-active-class="active" :title="[mini ? 'Calculadoras' : '']">
                         <div class="sidebar-icon-area">
                             <span class="sidebar-icon">
                                 <font-awesome-icon icon="weight"></font-awesome-icon>
                             </span>                            
                         </div>
-                        <div class="sidebar-icon-text">
-                            Calculadoras
+                        <div class="btn-group dropright">
+                            <div class="sidebar-icon-text dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Calculadoras
+                            </div>
+                            <transition name="fade" mode="out-in">
+                                <div class="dropdown-menu">
+                                    <h6 class="dropdown-header">Tipo</h6>
+                                    <button class="dropdown-item" type="button">IMC</button>
+                                    <button class="dropdown-item" type="button">Calorias Diárias</button>
+                                    <button class="dropdown-item" type="button">Peso Ideal</button>
+                                </div>                            
+                            </transition>
                         </div>
                     </router-link>                    
                 </li>
-                <li class="menu-item mb-3">                    
+                <li class="menu-item">                    
                     <router-link class="nav-link" to="/articles" exact-active-class="active" :title="[mini ? 'Artigos' : '']">
                         <div class="sidebar-icon-area">
                             <span class="sidebar-icon">
@@ -84,7 +95,7 @@
                         </div>                            
                     </router-link>                    
                 </li>
-                <li class="menu-item mb-3">                    
+                <li class="menu-item">                    
                     <router-link class="nav-link" to="/accounts" exact-active-class="active" :title="[mini ? 'Usuários cadastrados' : '']">
                         <div class="sidebar-icon-area">
                             <span class="sidebar-icon">
@@ -162,7 +173,7 @@ export default {
         -moz-box-shadow: 2px 0px 11px -1px rgba(0,0,0,0.34);
         box-shadow: 2px 0px 11px -1px rgba(0,0,0,0.34);
         margin-right: 1px;  
-        z-index: 1; 
+        z-index: 9999; 
         transition: 0.5s;                
         
         &.sidebar-mini {
@@ -215,11 +226,18 @@ export default {
         .menu ul{                              
             -webkit-padding-start: 0;
             list-style-type: none;    
-            color: gray;    
+            color: gray; 
             
             .menu-item {
-                border-radius: $border-radius-dashboard;
-                
+                border-radius: $border-radius-dashboard;                
+
+                .nav-link {                    
+                    display: flex;
+                    align-items: center; 
+                    width: 100%;  
+                    height: 100%;
+                }
+
                 .active {    
                      .sidebar-icon {
                          color: $theme-default;   
@@ -297,6 +315,25 @@ export default {
             color: inherit;
             text-decoration: none;
         }
+
+    }
+    
+    .dropdown-menu {
+        background-color: #1C1C1C;    
+        -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        .dropdown-item {
+            color: gray;
+            &:hover{
+                color: $theme-default;
+                background-color: inherit;                    
+            }
+        }
+    }
+
+    .dropdown-toggle {
+        
     }
 
     .menu[data-theme="default"]{

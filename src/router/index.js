@@ -30,6 +30,11 @@ Vue.use(VueRouter)
     name: 'Articles',    
     component: () => import('../views/Articles.vue')
   },
+  {
+    path: '/treino',
+    name: 'Treino',    
+    component: () => import('../views/Treino.vue')
+  },
 ]
 
 const router = new VueRouter({
