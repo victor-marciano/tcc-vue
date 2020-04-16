@@ -9,11 +9,11 @@ Vue.use(VueRouter)
     path: '/home',
     name: 'Home',
     component: Home
-  },
+  },  
   {
-    path: '/calculadoras',
-    name: 'Calculadora',
-    component: () => import('../views/Calculadora.vue')    
+    path: '/calculadora',
+    name: 'Calculadoras',
+    component: () => import('../views/Calculadoras.vue')    
   },
   {
     path: '/imc',
@@ -29,12 +29,12 @@ Vue.use(VueRouter)
     path: '/articles',
     name: 'Articles',    
     component: () => import('../views/Articles.vue')
-  },
-  {
-    path: '/treino',
-    name: 'Treino',    
-    component: () => import('../views/Treino.vue')
-  },
+  }
+  // {
+  //   path: '/treino',
+  //   name: 'Treino',    
+  //   component: () => import('../views/Treino.vue')
+  // },
 ]
 
 const router = new VueRouter({

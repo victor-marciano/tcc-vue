@@ -60,26 +60,16 @@
                         </div>
                     </router-link>                  
                 </li>                
-                <li class="menu-item">                    
-                    <router-link class="nav-link" to="/calculadoras" exact-active-class="active" :title="[mini ? 'Calculadoras' : '']">
+                <li class="menu-item">                   
+                    <router-link to="/calculadora" class="nav-link">
                         <div class="sidebar-icon-area">
                             <span class="sidebar-icon">
                                 <font-awesome-icon icon="weight"></font-awesome-icon>
                             </span>                            
-                        </div>
-                        <div class="btn-group dropright">
-                            <div class="sidebar-icon-text dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Calculadoras
-                            </div>
-                            <transition name="fade" mode="out-in">
-                                <div class="dropdown-menu">
-                                    <h6 class="dropdown-header">Tipo</h6>
-                                    <button class="dropdown-item" type="button">IMC</button>
-                                    <button class="dropdown-item" type="button">Calorias Diárias</button>
-                                    <button class="dropdown-item" type="button">Peso Ideal</button>
-                                </div>                            
-                            </transition>
-                        </div>
+                        </div>                        
+                        <div class="sidebar-icon-text">
+                            Calculadoras
+                        </div>                       
                     </router-link>                    
                 </li>
                 <li class="menu-item">                    
@@ -182,9 +172,7 @@ export default {
             .sidebar-icon-text {    
                 display: none;    
             }   
-            .sidebar-icon-area{
-                margin-bottom: 15px;
-            }
+            
             .sidebar-toggler {
                 justify-content: center;
             }   
