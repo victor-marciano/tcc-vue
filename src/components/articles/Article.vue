@@ -1,91 +1,31 @@
-.<template>
-        <article>
-            <div class="container">
-                <div class="row">
-                  <transition name="fade" mode="out-in" appear :duration="1000">
-                    <div class="col-md-4 col-xs-12 mb-4">
-                        <div class="card">                         
-                          <img class="card-img-top" src="../../assets/img/profile2.jpg" alt="">
-                          <div class="card-details">
-                            
-                          </div>
-                          <div class="card-body">
-                            <h6 class="text-muted">Author</h6>
-                            <a href=""><h5 class="card-title">Titulo da noticia</h5></a>
-                            <p class="card-text">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
-                          </div>
-                          <div class="card-footer text-muted">
-                            Publicado em 24/09/2017
-                          </div>
-                        </div>
-                    </div>
-                  </transition>                  
-                  <transition name="fade" mode="out-in" appear :duration="1000">
-                    <div class="col-md-4 col-xs-12 mb-4">
-                        <div class="card">                         
-                          <img class="card-img-top" src="../../assets/img/profile2.jpg" alt="">
-                          <div class="card-details">
-                            
-                          </div>
-                          <div class="card-body">
-                            <h6 class="text-muted">Author</h6>
-                            <a href=""><h5 class="card-title">Titulo da noticia</h5></a>
-                            <p class="card-text">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
-                          </div>
-                          <div class="card-footer text-muted">
-                            Publicado em 24/09/2017
-                          </div>
-                        </div>
-                    </div>
-                  </transition>                  
-                  <transition name="fade" mode="out-in" appear :duration="1000">
-                    <div class="col-md-4 col-xs-12 mb-4">
-                        <div class="card">                         
-                          <img class="card-img-top" src="../../assets/img/profile2.jpg" alt="">
-                          <div class="card-details">
-                            
-                          </div>
-                          <div class="card-body">
-                            <h6 class="text-muted">Author</h6>
-                            <a href=""><h5 class="card-title">Titulo da noticia</h5></a>
-                            <p class="card-text">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
-                          </div>
-                          <div class="card-footer text-muted">
-                            Publicado em 24/09/2017
-                          </div>
-                        </div>
-                    </div>
-                  </transition>                  
-                  <transition name="fade" mode="out-in" appear :duration="1000">
-                    <div class="col-md-4 col-xs-12 mb-4">
-                        <div class="card">                         
-                          <img class="card-img-top" src="../../assets/img/profile2.jpg" alt="">
-                          <div class="card-details">
-                            
-                          </div>
-                          <div class="card-body">
-                            <h6 class="text-muted">Author</h6>
-                            <a href=""><h5 class="card-title">Titulo da noticia</h5></a>
-                            <p class="card-text">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
-                          </div>
-                          <div class="card-footer text-muted">
-                            Publicado em 24/09/2017
-                          </div>
-                        </div>
-                    </div>
-                  </transition>                  
-                </div>
+<template>    
+  <div class="container articles">
+    <div class="row">          
+      <div class="col-md-4 col-xs-12 mb-4" v-for="article in articles" :key="article.id">
+        <transition name="fade" mode="out-in" appear>
+          <div class="card">                         
+            <img class="card-img-top" :src="article.urlToImage" alt="">            
+            <div class="card-body">
+              <h6 class="text-muted">{{ article.author }}</h6>
+              <a class="card-title" :href="article.url">{{ article.title }}</a>
+              <p>{{ article.description }}</p>
             </div>
-        </article>    
+            <div class="card-footer text-muted">
+              Publicado em {{ article.publishedAt }}
+            </div>
+          </div>
+        </transition>                              
+      </div>          
+    </div>
+  </div>        
 </template>
 
 <script>
 export default {
     name: 'Article',
     props: {
-      title: String,
-      src: String,
-      description: String
+      type: String,
+      articles: Array
     }
 }
 
@@ -94,10 +34,10 @@ export default {
 <style lang="scss" scoped>
 @import '../../assets/scss/_variables.scss';
 
-article {
+.articles {
     position: relative;
-    bottom: 50px;
-    z-index: 2;
+    bottom: 80px;
+    z-index: 2;    
 }
 
 .card {
@@ -106,22 +46,39 @@ article {
     box-shadow: 0px 5px 21px -10px rgba(0,0,0,0.75);
     border: none; 
     transition: all .5s ease;     
+    max-height: 360px;
+    height: 360px;
+
+    .card-body {  
+      p {
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3; /* number of lines to show */
+        -webkit-box-orient: vertical;
+      }    
+    }
     
     .card-img-top {
-      height: 150px;
+      height: 125px;
       object-fit: cover;  
     }
 
     a:link {
       color: $theme-secondary;
       text-decoration: none;
-      h5 {
-        color: $theme-secondary;
-        font-weight: bold;
-      }
+      font-weight: bold;
+      font-size: 16px;
+      
       &:visited {
-        color: $theme-secondary;
+        color: darken($theme-secondary, 15%);
       }
+
+      &:hover {
+        color: darken($theme-secondary, 15%);
+      }
+
     }
 
     .card-details {
@@ -130,7 +87,7 @@ article {
 
     .card-footer {
       border: none;
-      font-size: 12px;
+      font-size: 11px;
     }
     
     &:hover {
