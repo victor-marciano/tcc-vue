@@ -3,7 +3,8 @@
     <Sidebar></Sidebar>   
     <Navbar></Navbar>
     <Content></Content> 
-    <Footer></Footer>  
+    <Footer></Footer>
+    <auth-modal></auth-modal>  
   </div>
   
 </template>
@@ -13,13 +14,15 @@ import Navbar from './components/Navbar.vue';
 import Sidebar from './components/Sidebar.vue';
 import Content from './components/Content.vue';
 import Footer from './components/Footer.vue';
+import AuthModal from './components/auth/AuthModal.vue';
 
 export default {
   components: {
     Navbar,
     Sidebar,
     Content,
-    Footer    
+    Footer,
+    AuthModal    
   }
 }
 </script>
