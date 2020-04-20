@@ -3,6 +3,7 @@ import App from './App.vue';
 import router from './router';
 import 'bootstrap';
 import './assets/scss/app.scss';
+import Toasted from 'vue-toasted';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { faFontAwesome } from '@fortawesome/free-brands-svg-icons';
@@ -18,6 +19,19 @@ library.add(faGooglePlus);
 library.add(faTwitterSquare);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
+
+// notifications
+Vue.use(Toasted);
+Vue.toasted.register('nutrimarsValidationSuccess', (payload) => {
+  return payload.message;
+}, {
+  type : 'success',
+  icon : 'check',
+  keepOnHover: true,
+  iconPack: 'fontawesome',
+  theme: 'bubble',  
+  singleton: true
+})
 
 Vue.config.productionTip = false;
 

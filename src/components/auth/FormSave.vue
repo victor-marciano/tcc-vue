@@ -1,8 +1,8 @@
 <template>    
-    <form> 
+    <form ref="formSave"> 
         <div class="row mb-2">            
             <div class="col-md-6 col-xs-12">                        
-                <input v-model="email" class="form-control form-control-sm" id="exampleInputEmail1" placeholder="Seu Email">                        
+                <input v-model="email" name="email" class="form-control form-control-sm" id="exampleInputEmail1" placeholder="Seu Email">                        
             </div>        
             <div class="col-md-6 col-xs-12">                        
                 <strong></strong>                                  
@@ -11,7 +11,7 @@
            
         <div class="row mb-2">
             <div class="col-md-6 col-xs-12">                        
-                <input type="password" v-model="password" class="form-control form-control-sm" id="exampleInputPassword1" placeholder="Senha">
+                <input type="password" name="password" v-model="password" class="form-control form-control-sm" id="exampleInputPassword1" placeholder="Senha">
                 <small class="text-muted">Conter entre 8 e 14 caractéres</small>                   
             </div>
             <div class="col-md-6 col-xs-12">               
@@ -20,19 +20,22 @@
         </div>
         <div class="row  mb-2">
             <div class="col-md-6 col-xs-12">                        
-                <input type="text" v-model="name" class="form-control form-control-sm"  placeholder="Nome Completo">                                   
+                <input type="text" name="name" v-model="name" class="form-control form-control-sm"  placeholder="Nome Completo">                                   
             </div>
         </div>
         <div class="row  mb-2">
             <div class="col-md-6 col-xs-12">                        
-                <input type="text" v-model="celphone" class="form-control form-control-sm" placeholder="Celular">                                   
+                <input type="text" name="celphone" v-model="celphone" class="form-control form-control-sm" placeholder="Celular">                                   
             </div>
         </div>        
-        <button type="submit" class="btn btn-success mt-2 float-right" >Salvar</button>
+        <button type="submit" v-on:click.prevent="submit" class="btn btn-success mt-2 float-right" >Salvar</button>
     </form>    
 </template>
 
 <script>
+
+import axios from 'axios';
+
 export default {
     data() {
         return {
@@ -45,14 +48,6 @@ export default {
         }
     },
 
-    vuelidation: {
-      data: {
-        email: {
-          required: true,
-        },
-      },
-    },
-    
     methods: {
         passStrenght () {                           
             if (this.password.length < 8 || this.password.length > 20) {
@@ -72,6 +67,17 @@ export default {
             if (this.password.match(/[$-/:-?{-~!"^_`[\]]/) && this.password.match(/[A-Z]*/) && this.password.length >= 8) {
                 this.strenght = 'Forte';    
                 this.feedback = 'text-success';  
+            }
+        },       
+        async submit () {
+            try {
+                let formData = new FormData(this.$refs.formSave);
+                let response = await axios.post('http://127.0.0.1:8000/api/user', formData);
+                console.log(response);
+                // this.$toasted.success(response.data.success);                    
+                this.$toasted.global.nutrimarsValidationSuccess({message:response.data.success}).goAway(2500);                    
+            } catch (error) {
+                console.log(error);    
             }
         }
     },
