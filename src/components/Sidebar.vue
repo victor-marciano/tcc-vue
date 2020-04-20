@@ -98,8 +98,8 @@
                 </li>
             </ul>    
         </div>
-        <div class="sidebar-need-auth">
-            <button class="btn btn-primary" data-toggle="modal" data-target="#authModal">Cadastre-se</button>    
+        <div class="sidebar-need-auth">            
+            <b-button class="btn btn-primary" v-b-modal.auth-modal>Cadastre-se</b-button>    
         </div>       
     </div> 
 </template>

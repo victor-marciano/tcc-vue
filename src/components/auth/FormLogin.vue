@@ -20,7 +20,8 @@ export default {
                 let formData = new FormData(this.$refs.formLogin);
                 let response = await axios.post('http://127.0.0.1:8000/api/login', formData);                        
                 this.$toasted.global.nutrimarsValidationSuccess({message:response.data.success}).goAway(2500);
-                this.$router.push('home');                    
+                this.$router.push('home');  
+                                  
             } catch (error) {
                 const errors = error.response.data.errors;
                 for (const validationError in errors) {                    

@@ -1,36 +1,10 @@
-<template>
-  <div class="modal" id="authModal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-
-        <!-- Modal Header -->
-        <div class="modal-header">
-            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Cadastro</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Login</a>
-                </li>                
-            </ul>            
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-
-        <!-- Modal body -->
-        <div class="modal-body">
-            <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                    <form-save></form-save>                    
-                </div>
-                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                    <form-login></form-login>
-                </div>                
-            </div>
-        </div>
-
-        </div>
-    </div>
-  </div>
+<template>   
+    <b-modal id="auth-modal" title="Acesso" hide-header="no" hide-footer="true">
+        <b-tabs pills>
+            <b-tab title="Cadastro" active><form-save></form-save></b-tab>
+            <b-tab title="Login"><form-login></form-login></b-tab>
+        </b-tabs>                
+    </b-modal>      
 </template>
 
 <script>

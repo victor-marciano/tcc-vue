@@ -29,6 +29,16 @@ export default {
       authenticated: false
     }
   },
+  
+  mounted() {
+    
+  },
+
+  methods: {
+    getUserLogged () {
+
+    }
+  },
 }
 </script>
 

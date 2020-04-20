@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
-import 'bootstrap';
+import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue';
 import './assets/scss/app.scss';
 import Toasted from 'vue-toasted';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -19,6 +19,8 @@ library.add(faGooglePlus);
 library.add(faTwitterSquare);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
+Vue.use(BootstrapVue);
+Vue.use(BootstrapVueIcons);
 
 // notifications
 Vue.use(Toasted);
