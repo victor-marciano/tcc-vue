@@ -24,7 +24,7 @@ export default {
     
     async created() {    
         let response = await axios.get('http://127.0.0.1:8000/api/artigos');
-        this.articleData = response.data.articles;        
+        this.articleData = response.data;         
     },   
 
     computed: {

@@ -99,7 +99,7 @@
             </ul>    
         </div>
         <div class="sidebar-need-auth">
-            <button class="btn btn-primary">Cadastre-se</button>    
+            <button class="btn btn-primary" data-toggle="modal" data-target="#authModal">Cadastre-se</button>    
         </div>       
     </div> 
 </template>

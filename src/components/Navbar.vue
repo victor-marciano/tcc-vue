@@ -44,10 +44,10 @@
                         <font-awesome-icon icon="sign-out-alt" class="mr-2"></font-awesome-icon>
                         Temas
                     </router-link>
-                    <router-link class="dropdown-item" to="/logout">
+                    <a class="dropdown-item" data-toggle="modal" data-target="#authModal">
                         <font-awesome-icon icon="sign-in-alt" class="mr-2"></font-awesome-icon>
                         Login/Cadastro
-                    </router-link>
+                    </a>
                 </div>   
             </div>
             <transition name="show" enter-active-class="slideInLeft" leave-active-class="slideOutLeft">        
