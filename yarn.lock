@@ -8444,11 +8444,6 @@ vue@^2.6.11:
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
   integrity sha512-VfPwgcGABbGAue9+sfrD4PuwFar7gPb1yl1UK1MwXoQPAw0BKSqWfoYCT/ThFrdEVWoI51dBuyCoiNU9bZDZxQ==
 
-vuelidation@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/vuelidation/-/vuelidation-1.1.0.tgz#6dc9acbc202f6506cde2d36244690296371054ae"
-  integrity sha512-6cnc9G63Bo9t4dESZHILh9J8zMggWnMGOAWBaxvVYCjFol4FbBAGq/oBh74KHJBHXL9FmRd2hUvRnVK8Sb8WBg==
-
 watchpack@^1.6.0:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/watchpack/-/watchpack-1.6.1.tgz#280da0a8718592174010c078c7585a74cd8cd0e2"

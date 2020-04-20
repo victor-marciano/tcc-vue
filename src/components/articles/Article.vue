@@ -8,10 +8,10 @@
             <div class="card-body">
               <h6 class="text-muted">{{ article.author }}</h6>
               <a class="card-title" :href="article.url">{{ article.title }}</a>
-              <p>{{ article.description }}</p>
+              <!-- <p>{{ article.description }}</p> -->
             </div>
             <div class="card-footer text-muted">
-              Publicado em {{ article.publishedAt }}
+              Publicado {{ article.publishedAt }}
             </div>
           </div>
         </transition>                              
@@ -46,8 +46,8 @@ export default {
     box-shadow: 0px 5px 21px -10px rgba(0,0,0,0.75);
     border: none; 
     transition: all .5s ease;     
-    max-height: 360px;
-    height: 360px;
+    max-height: 300px;
+    height: 300px;
 
     .card-body {  
       p, .card-title {
