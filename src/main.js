@@ -31,7 +31,18 @@ Vue.toasted.register('nutrimarsValidationSuccess', (payload) => {
   iconPack: 'fontawesome',
   theme: 'bubble',  
   singleton: true
-})
+});
+
+Vue.toasted.register('nutrimarsValidationError', (payload) => {
+  return payload.message;
+}, {
+  type : 'error',
+  icon : 'warning',
+  keepOnHover: true,
+  iconPack: 'fontawesome',
+  theme: 'bubble',  
+  singleton: true
+});
 
 Vue.config.productionTip = false;
 

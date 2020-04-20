@@ -23,7 +23,12 @@ export default {
     Content,
     Footer,
     AuthModal    
-  }
+  },
+  data() {
+    return {
+      authenticated: false
+    }
+  },
 }
 </script>
 

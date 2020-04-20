@@ -72,12 +72,14 @@ export default {
         async submit () {
             try {
                 let formData = new FormData(this.$refs.formSave);
-                let response = await axios.post('http://127.0.0.1:8000/api/user', formData);
-                console.log(response);
-                // this.$toasted.success(response.data.success);                    
+                let response = await axios.post('http://127.0.0.1:8000/api/user', formData);                        
                 this.$toasted.global.nutrimarsValidationSuccess({message:response.data.success}).goAway(2500);                    
             } catch (error) {
-                console.log(error);    
+                const errors = error.response.data.errors;
+                for (const validationError in errors) {                    
+                    const message = errors[validationError][0];
+                    this.$toasted.global.nutrimarsValidationError({message:message}).goAway(5000);    
+                }        
             }
         }
     },
