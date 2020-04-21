@@ -11,17 +11,25 @@
                 <img src="../assets/img/nutrimars14.png" alt="Logo">
             </div>
 
-            <form class="form-inline" id="form-search">
-                <input class="form-control mr-2" type="search" placeholder="Buscar no site" aria-label="Search">
-                <button class="navbar-icon" type="submit">
-                    <span style="font-size: 1.3em">
+            <b-form @submit.stop.prevent class="form-inline" id="form-search">
+                <b-input type="text" class="form-control mr-2" placeholder="Buscar no site"></b-input>
+                <b-button variant="light" class="navbar-icon" type="submit">
+                    <span style="font-size: 1.3em;">
                         <font-awesome-icon icon="search"></font-awesome-icon>
                     </span>
-                </button>
-            </form>
+                </b-button>
+            </b-form>
             
-            <div class="user-logged">                    
-                <b-avatar to="/profile" variant="light" :src="require('../assets/img/png/kcal.png')"></b-avatar>                   
+            <div class="user-logged">               
+                <b-dropdown variant="link" toggle-class="text-decoration-none" no-caret dropleft>
+                    <template v-slot:button-content>                    
+                        <b-avatar variant="light" :src="require('../assets/img/png/kcal.png')"></b-avatar>
+                    </template>
+                    <b-dropdown-header><strong>Victor Marciano</strong><br><small>Administrador</small></b-dropdown-header>
+                    <b-dropdown-item to="/profile"><b-icon-person-square class="mr-3"></b-icon-person-square>Profile</b-dropdown-item>
+                    <b-dropdown-item to="/config"><b-icon-gear-fill class="mr-3"></b-icon-gear-fill>Configurações</b-dropdown-item>
+                    <b-dropdown-item to="/logout"><b-icon-power class="mr-3"></b-icon-power>Logout</b-dropdown-item>
+                </b-dropdown>                   
             </div>
             
             <transition name="show" enter-active-class="slideInLeft" leave-active-class="slideOutLeft">        
@@ -114,8 +122,11 @@ export default {
         -moz-box-shadow: 3px 10px 17px -7px rgba(0,0,0,0.50);
         box-shadow: 3px 10px 17px -7px rgba(0,0,0,0.50);
         border: none;
-        background-color: white;
+        // background-color: white;
         color: $theme-secondary;
+        display:flex;
+        justify-content: center;
+        align-items: center;
     } 
 
     .navbar-icon:hover {

@@ -28,7 +28,9 @@
                 <input type="text" name="celphone" v-model="celphone" class="form-control form-control-sm" placeholder="Celular">                                   
             </div>
         </div>        
-        <button type="submit" v-on:click.prevent="submit" class="btn btn-success mt-2 float-right" >Salvar</button>
+        <b-overlay :show="loading" rounded opacity="0.6" spinner-small spinner-variant="primary" class="d-inline-block">
+            <button type="submit" v-on:click.prevent="submit" class="btn btn-success mt-2" >Salvar</button>
+        </b-overlay>
     </form>    
 </template>
 
@@ -44,7 +46,8 @@ export default {
             name: '',
             email: '',
             celphone: '',
-            feedback: ''           
+            feedback: '',
+            loading: false           
         }
     },
 
@@ -70,16 +73,19 @@ export default {
             }
         },       
         async submit () {
+            this.loading = true;
             try {
                 let formData = new FormData(this.$refs.formSave);
                 let response = await axios.post('http://127.0.0.1:8000/api/user', formData);                        
-                this.$toasted.global.nutrimarsValidationSuccess({message:response.data.success}).goAway(2500);                    
+                this.$toasted.global.nutrimarsValidationSuccess({message:response.data.success}).goAway(2500);
+                this.loading = false;                    
             } catch (error) {
+                this.loading = false;       
                 const errors = error.response.data.errors;
                 for (const validationError in errors) {                    
                     const message = errors[validationError][0];
                     this.$toasted.global.nutrimarsValidationError({message:message}).goAway(5000);    
-                }        
+                } 
             }
         }
     },
