@@ -1,23 +1,19 @@
-<template>    
-  <div class="container-fluid articles">
-    <div class="row">          
-      <div class="col-md-4 col-xs-12 mb-4" v-for="article in articles" :key="article.id">
+<template>
+  <b-container fluid class="articles">
+    <b-row>
+      <b-col col md="4" sm="6" xs="12" class="mb-4" v-for="article in articles" :key="article.id">
         <transition name="fade" mode="out-in" appear>
-          <div class="card">                         
-            <img class="card-img-top" :src="article.urlToImage" alt="">            
-            <div class="card-body">
+          <b-card :img-src="article.urlToImage" img-top>                  
+            <b-card-body>              
               <h6 class="text-muted">{{ article.author }}</h6>
-              <a class="card-title" :href="article.url">{{ article.title }}</a>
-              <!-- <p>{{ article.description }}</p> -->
-            </div>
-            <div class="card-footer text-muted">
-              Publicado {{ article.publishedAt }}
-            </div>
-          </div>
-        </transition>                              
-      </div>          
-    </div>
-  </div>        
+              <b-link class="card-title" :href="article.url">{{ article.title }}</b-link>              
+            </b-card-body>
+            <template v-slot:footer>Publicado {{article.publishedAt}}</template>            
+          </b-card>
+        </transition>
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>
@@ -50,6 +46,7 @@ export default {
     height: 300px;
 
     .card-body {  
+      padding: 10px;
       p, .card-title {
         width: 100%;
         overflow: hidden;

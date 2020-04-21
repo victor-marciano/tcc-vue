@@ -4,18 +4,18 @@
             <b-form>
                 <b-row>
                     <b-col col md="6" xs="12" class="mb-2">
-                        <b-input type="text" id="text-password" aria-describedby="password-help-block" placeholder="Nome completo"></b-input>
+                        <b-input type="text" id="text-password" placeholder="Nome completo"></b-input>
                     </b-col>
                     <b-col md="6" xs="12" class="mb-2">
-                        <b-input type="text" id="text-password" aria-describedby="password-help-block" placeholder="Email"></b-input>
+                        <b-input type="text" id="text-password" placeholder="Email"></b-input>
                     </b-col>                
                 </b-row>
                 <b-row>
                     <b-col md="6" xs="12" class="mb-2">
-                        <b-input type="text" id="text-password" aria-describedby="password-help-block" placeholder="Senha"></b-input>
+                        <b-input type="text" id="text-password" placeholder="Senha"></b-input>
                     </b-col>
                     <b-col md="6" xs="12" class="mb-2">
-                        <b-input type="text" id="text-password" aria-describedby="password-help-block" placeholder="Celular"></b-input>
+                        <b-input type="text" id="text-password" placeholder="Celular"></b-input>
                     </b-col>                
                 </b-row>
                 <b-button variant="primary" class="float-left">Salvar</b-button>
