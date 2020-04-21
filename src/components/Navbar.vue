@@ -20,36 +20,10 @@
                 </button>
             </form>
             
-            <div class="user-logged">
-                <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="navbar-icon" src="../assets/img/profile2.jpg" alt="User">    
-                </a>
-                <div class="dropdown-menu dropdown-menu-right mr-3" aria-labelledby="dropdownMenuLink">
-                    <h6 class="dropdown-header">Victor Marciano <br><small>Nutricionista</small></h6>                
-                    <h5 class="dropdown-header mt-2">Perfil</h5>                
-                    <router-link class="dropdown-item" to="/profile">
-                        <font-awesome-icon icon="user" class="mr-2"></font-awesome-icon>
-                        Perfil
-                    </router-link>   
-                    <router-link class="dropdown-item" to="/config">
-                        <font-awesome-icon icon="cogs" class="mr-2"></font-awesome-icon>
-                        Configurações
-                    </router-link>                    
-                    <router-link class="dropdown-item" to="/logout">
-                        <font-awesome-icon icon="sign-out-alt" class="mr-2"></font-awesome-icon>
-                        Logout
-                    </router-link>
-                    <h6 class="dropdown-header mt-2">Opções</h6>             
-                    <router-link class="dropdown-item" to="/logout">
-                        <font-awesome-icon icon="sign-out-alt" class="mr-2"></font-awesome-icon>
-                        Temas
-                    </router-link>
-                    <a class="dropdown-item" data-toggle="modal" data-target="#authModal">
-                        <font-awesome-icon icon="sign-in-alt" class="mr-2"></font-awesome-icon>
-                        Login/Cadastro
-                    </a>
-                </div>   
+            <div class="user-logged">                    
+                <b-avatar to="/profile" variant="light" :src="require('../assets/img/png/kcal.png')"></b-avatar>                   
             </div>
+            
             <transition name="show" enter-active-class="slideInLeft" leave-active-class="slideOutLeft">        
                 <div class="navbarMobile" id="navbarMobile" v-if="navbar_menu_show">
                     <div class="menu mt-3">
@@ -108,7 +82,7 @@ export default {
     },
 
     methods: {
-        showMenu () { this.navbar_menu_show = !this.navbar_menu_show }             
+        showMenu () { this.navbar_menu_show = !this.navbar_menu_show }               
     }    
 }
 </script>

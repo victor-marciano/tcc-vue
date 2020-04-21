@@ -1,5 +1,5 @@
 <template>   
-    <b-modal id="auth-modal" title="Acesso" hide-header="no" hide-footer="true">
+    <b-modal id="auth-modal" title="Acesso" :hide-header="true" :hide-footer="true">
         <b-tabs pills>
             <b-tab title="Cadastro" active><form-save></form-save></b-tab>
             <b-tab title="Login"><form-login></form-login></b-tab>
