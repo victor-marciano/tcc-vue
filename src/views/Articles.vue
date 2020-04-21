@@ -1,7 +1,9 @@
 <template>
   <section>      
-    <heading-content></heading-content>    
-    <Article :articles="getArticles"></Article>   
+    <heading-content></heading-content>   
+    <b-overlay id="overlay-background" :show="loading" variant="dark" spinner-variant="success" spinner-type="border" :opacity="0.10"> 
+        <Article :articles="getArticles"></Article>
+    </b-overlay>   
   </section>
 </template>
 
@@ -18,13 +20,15 @@ export default {
 
     data() {
         return {
-            articleData: null
+            articleData: null,
+            loading: true
         }
     },
     
     async created() {    
         let response = await axios.get('http://127.0.0.1:8000/api/artigos');
-        this.articleData = response.data;         
+        this.articleData = response.data;
+        this.loading = false;         
     },   
 
     computed: {
@@ -37,6 +41,4 @@ export default {
 
 <style lang="scss" scoped>
 @import '../assets/scss/_variables.scss';
-
-
 </style>

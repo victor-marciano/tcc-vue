@@ -13,7 +13,7 @@
         </transition>
       </b-col>
     </b-row>
-  </b-container>
+  </b-container>  
 </template>
 
 <script>
@@ -22,7 +22,7 @@ export default {
     props: {
       type: String,
       articles: Array
-    }
+    }    
 }
 
 </script>
@@ -33,7 +33,8 @@ export default {
 .articles {
     position: relative;
     bottom: 80px;
-    z-index: 2;    
+    z-index: 2; 
+    min-height: 500px;   
 }
 
 .card {
