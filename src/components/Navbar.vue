@@ -28,7 +28,7 @@
                     <b-dropdown-header><strong>Victor Marciano</strong><br><small>Administrador</small></b-dropdown-header>
                     <b-dropdown-item to="/profile"><b-icon-person-square class="mr-3"></b-icon-person-square>Profile</b-dropdown-item>
                     <b-dropdown-item to="/config"><b-icon-gear-fill class="mr-3"></b-icon-gear-fill>Configurações</b-dropdown-item>
-                    <b-dropdown-item to="/logout"><b-icon-power class="mr-3"></b-icon-power>Logout</b-dropdown-item>
+                    <b-dropdown-item @click="logout"><b-icon-power class="mr-3"></b-icon-power>Logout</b-dropdown-item>
                 </b-dropdown>                   
             </div>
             
@@ -90,7 +90,8 @@ export default {
     },
 
     methods: {
-        showMenu () { this.navbar_menu_show = !this.navbar_menu_show }               
+        showMenu () { this.navbar_menu_show = !this.navbar_menu_show },
+        logout () { this.$store.dispatch('logout') }               
     }    
 }
 </script>

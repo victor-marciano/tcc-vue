@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+// import axios from 'axios';
 
 export default {
     data() {
@@ -24,21 +24,22 @@ export default {
     methods: {
         async submit () {
             this.loading = true;
+            let formData = new FormData(this.$refs.formLogin);
+            let jsonData = JSON.stringify({ email: formData.get('email'), password: formData.get('password')})
             try {
-                let formData = new FormData(this.$refs.formLogin);
-                let response = await axios.post('http://127.0.0.1:8000/api/login', formData);
-                this.loading = false;                        
+                let response = await this.$store.dispatch('login', { data: jsonData });
+                this.loading = false;                 
                 this.$toasted.global.nutrimarsValidationSuccess({message:response.data.success}).goAway(2500);
-                this.$router.push('home');                                  
-            } catch (error) {
-                this.loading = false;
+                this.$router.push('home');
+            } catch (error) {                 
+                this.loading = false;    
                 const errors = error.response.data.errors;
-                for (const validationError in errors) {                    
-                    const message = errors[validationError][0];
+                for (const validationError in errors) {    
+                    const message = errors[validationError].msg;
                     this.$toasted.global.nutrimarsValidationError({message:message}).goAway(5000);    
-                }        
+                }
             }
-        }
+        }  
     },
 }
 </script>

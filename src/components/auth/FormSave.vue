@@ -83,7 +83,7 @@ export default {
                 this.loading = false;       
                 const errors = error.response.data.errors;
                 for (const validationError in errors) {                    
-                    const message = errors[validationError][0];
+                    const message = errors[validationError].msg;
                     this.$toasted.global.nutrimarsValidationError({message:message}).goAway(5000);    
                 } 
             }

@@ -1,6 +1,8 @@
 import Vue from 'vue';
+import Vuex from 'vuex'
 import App from './App.vue';
 import router from './router';
+import axios from 'axios';
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue';
 import './assets/scss/app.scss';
 import Toasted from 'vue-toasted';
@@ -17,6 +19,9 @@ library.add(faFontAwesome);
 library.add(faFacebook);
 library.add(faGooglePlus);
 library.add(faTwitterSquare);
+
+Vue.use(Vuex);
+
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.use(BootstrapVue);
@@ -46,9 +51,51 @@ Vue.toasted.register('nutrimarsValidationError', (payload) => {
   singleton: true
 });
 
+const store = new Vuex.Store({
+  state: {
+    isLogged: (localStorage.getItem('auth_token')) ? true : false,
+    user: null
+  },
+
+  mutations: {
+    authenticate (state, { user, token }) {
+      state.isLogged = true;  
+      state.user = user;
+      localStorage.setItem('auth_token', token);
+    },
+
+    logout () {
+      localStorage.removeItem('auth_token');  
+    }
+  },
+
+  actions: {
+    login ({ commit }, payload) {    
+      return axios.post('https://nutrimars-api.herokuapp.com/user/auth', payload.data)
+      .then(data => { 
+        commit('authenticate', { user: data.user, token: data.token });
+        return Promise.resolve(data); 
+      })
+      .catch(error => {
+          return Promise.reject(error); 
+      });
+    },
+
+    logout ({ commit }) {      
+      commit('logout');  
+    }
+  },
+  getters: {
+    loggedUser: state => {
+      return state.user
+    }
+  }
+});
+
 Vue.config.productionTip = false;
 
 new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount('#app')
