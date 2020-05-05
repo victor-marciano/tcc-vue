@@ -137,21 +137,13 @@ export default {
     }
 
     .user-logged {
-        .dropdown-menu {
-            border: none;
-            -webkit-box-shadow: 0px 0px 7px -2px rgba(102,99,102,1);
-            -moz-box-shadow: 0px 0px 7px -2px rgba(102,99,102,1);
-            box-shadow: 0px 0px 7px -2px rgba(102,99,102,1);
-
-            .dropdown-header {
-                font-weight: bold;
-                margin-bottom: 10px;
-            }
-
-            .dropdown-item {    
-                font-size: 14px;
-            }       
-        }
+        position: relative;
+        right: 10px; 
+        bottom: 5px;       
+        .dropdown {
+            width: 40px;
+            height: 40px;     
+        }    
     }    
 
     #form-search {

@@ -76,8 +76,8 @@ export default {
             this.loading = true;
             try {
                 let formData = new FormData(this.$refs.formSave);
-                let response = await axios.post('http://127.0.0.1:8000/api/user', formData);                        
-                this.$toasted.global.nutrimarsValidationSuccess({message:response.data.success}).goAway(2500);
+                let response = await axios.post('https://nutrimars-api.herokuapp.com/user', formData);                        
+                this.$toasted.global.nutrimarsValidationSuccess({message:response.data.message}).goAway(2500);
                 this.loading = false;                    
             } catch (error) {
                 this.loading = false;       

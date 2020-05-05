@@ -26,7 +26,8 @@ export default {
     },
     
     async created() {    
-        let response = await axios.get('http://127.0.0.1:8000/api/artigos');
+        let response = await axios.get('https://nutrimars-api.herokuapp.com/articles/public');
+        // let response = await axios.get('http://localhost:3000/articles/public');
         this.articleData = response.data;
         this.loading = false;         
     },   
