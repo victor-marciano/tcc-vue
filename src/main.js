@@ -71,10 +71,15 @@ const store = new Vuex.Store({
 
   actions: {
     login ({ commit }, payload) {    
-      return axios.post('https://nutrimars-api.herokuapp.com/user/auth', payload.data)
-      .then(data => { 
-        commit('authenticate', { user: data.user, token: data.token });
-        return Promise.resolve(data); 
+      return axios.post('https://nutrimars-api.herokuapp.com/user/auth', payload.data, {
+        headers: {
+          "Content-type": "application/json"
+        }
+      })
+      .then(response => { 
+        console.log(response.data);
+        commit('authenticate', { user: response.data.user, token: response.data.accessToken });
+        return Promise.resolve(response); 
       })
       .catch(error => {
           return Promise.reject(error); 

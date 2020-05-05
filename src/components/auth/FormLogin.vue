@@ -29,7 +29,7 @@ export default {
             try {
                 let response = await this.$store.dispatch('login', { data: jsonData });
                 this.loading = false;                 
-                this.$toasted.global.nutrimarsValidationSuccess({message:response.data.success}).goAway(2500);
+                this.$toasted.global.nutrimarsValidationSuccess({message:response.data.message}).goAway(2500);
                 this.$router.push('home');
             } catch (error) {                 
                 this.loading = false;    
