@@ -60,11 +60,12 @@ const store = new Vuex.Store({
   mutations: {
     authenticate (state, { user, token }) {
       state.isLogged = true;  
-      state.user = user;
+      state.user = user;  
       localStorage.setItem('auth_token', token);
     },
 
-    logout () {
+    logout (state) {
+      state.user = undefined;
       localStorage.removeItem('auth_token');  
     }
   },
@@ -77,7 +78,6 @@ const store = new Vuex.Store({
         }
       })
       .then(response => { 
-        console.log(response.data);
         commit('authenticate', { user: response.data.user, token: response.data.accessToken });
         return Promise.resolve(response); 
       })
@@ -90,6 +90,7 @@ const store = new Vuex.Store({
       commit('logout');  
     }
   },
+  
   getters: {
     loggedUser: state => {
       return state.user

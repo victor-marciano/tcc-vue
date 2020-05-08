@@ -20,7 +20,7 @@
                 </b-button>
             </b-form>
             
-            <div class="user-logged">               
+            <div class="user-logged" v-show="loggedUser">               
                 <b-dropdown variant="link" toggle-class="text-decoration-none" no-caret dropleft>
                     <template v-slot:button-content>                    
                         <b-avatar variant="light" :src="require('../assets/img/png/kcal.png')"></b-avatar>
@@ -85,14 +85,23 @@
 export default {    
     data () {
         return {
-            navbar_menu_show: false          
+            navbar_menu_show: false                  
         }
-    },
+    },   
 
     methods: {
         showMenu () { this.navbar_menu_show = !this.navbar_menu_show },
-        logout () { this.$store.dispatch('logout') }               
-    }    
+        logout () {
+            this.$store.dispatch('logout');
+            this.$toasted.success('Deslogado').goAway(2500);
+        }                     
+    },
+    
+    computed: {
+        loggedUser () {    
+            return this.$store.getters.loggedUser;
+        }
+    }
 }
 </script>
 
